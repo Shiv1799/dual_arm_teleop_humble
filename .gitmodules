@@ -1,0 +1,3 @@
+[submodule "src/moveit_resources"]
+	path = src/moveit_resources
+	url = https://github.com/ros-planning/moveit_resources.git
