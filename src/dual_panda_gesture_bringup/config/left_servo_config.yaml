@@ -1,0 +1,57 @@
+# MoveIt Servo configuration for LEFT Panda arm — dual-arm gesture control
+# Uses /**:  wildcard so --params-file works with any node name
+
+/**:
+  ros__parameters:
+    ## Properties of incoming commands
+    command_in_type: "speed_units"
+    scale:
+      linear: 0.4
+      rotational: 0.8
+
+    ## Twist command input topic (published by dual_gesture_bridge)
+    cartesian_command_in_topic: /left_servo/delta_twist_cmds
+
+    ## Joint command input topic (not used for gesture control)
+    joint_command_in_topic: /left_servo/delta_joint_cmds
+
+    ## Command output topic — goes to the left arm ros2_control controller
+    command_out_topic: /left_arm_controller/joint_trajectory
+    command_out_type: "trajectory_msgs/JointTrajectory"
+
+    ## Status topic for monitoring
+    status_topic: /left_servo/status
+
+    ## Planning parameters — must match dual_arm_panda_moveit_config
+    move_group_name: left_panda_arm
+    planning_frame: world
+    ee_frame_name: left_panda_link8
+    robot_link_command_frame: world
+
+    ## Incoming command timeout (seconds)
+    incoming_command_timeout: 0.3
+
+    ## Publish period (seconds) — 100 Hz servo loop
+    publish_period: 0.01
+
+    ## Collision checking — disabled to avoid planning scene dependency
+    check_collisions: false
+    collision_check_rate: 10.0
+
+    ## Joint limits
+    joint_limit_margin: 0.1
+
+    ## Singularity management
+    lower_singularity_threshold: 17.0
+    hard_stop_singularity_threshold: 30.0
+    leaving_singularity_threshold_multiplier: 2.0
+
+    ## Publish settings
+    publish_joint_positions: true
+    publish_joint_velocities: false
+    publish_joint_accelerations: false
+
+    use_gazebo: false
+    use_sim_time: false
+
+    smoothing_filter_plugin_name: "online_signal_smoothing::ButterworthFilterPlugin"

@@ -1,0 +1,18 @@
+controller_manager:
+  ros__parameters:
+    left_gripper_controller:
+      type: position_controllers/JointGroupPositionController
+    right_gripper_controller:
+      type: position_controllers/JointGroupPositionController
+
+left_gripper_controller:
+  ros__parameters:
+    joints:
+      - left_panda_finger_joint1
+      - left_panda_finger_joint2
+
+right_gripper_controller:
+  ros__parameters:
+    joints:
+      - right_panda_finger_joint1
+      - right_panda_finger_joint2

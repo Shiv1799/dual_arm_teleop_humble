@@ -1,0 +1,28 @@
+# Workspace bounds for dual-arm gesture control
+# Arms are at Y=-1.5 (left) and Y=+1.5 (right) in world frame
+
+/**:
+  ros__parameters:
+    camera_id: 0
+    smoothing_factor: 0.4
+    pinch_threshold: 0.07
+    fist_threshold: 0.10
+    publish_rate: 5.0
+    servo_publish_rate: 5.0
+    velocity_gain: 1.5
+    deadzone: 0.005
+    max_linear_speed: 0.3
+    # Left arm workspace (camera left half -> left arm near Y=-1.5)
+    left_planning_frame: "world"
+    left_ws_x_min: -1.9
+    left_ws_x_max: -1.1
+    left_ws_z_min: 0.1
+    left_ws_z_max: 0.7
+    left_ws_y_fixed: 0.4
+    # Right arm workspace (camera right half -> right arm near Y=+1.5)
+    right_planning_frame: "world"
+    right_ws_x_min: 1.1
+    right_ws_x_max: 1.9
+    right_ws_z_min: 0.1
+    right_ws_z_max: 0.7
+    right_ws_y_fixed: 0.4
