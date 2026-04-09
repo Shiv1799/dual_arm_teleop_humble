@@ -7,6 +7,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Install additional useful tools (including gedit)
 RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
+    python3-pip \
     curl \
     wget \
     zsh \
@@ -14,6 +15,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     vim \
     gedit \
     g++ \
+    mediapipe \
+    opencv-python \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
