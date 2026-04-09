@@ -17,7 +17,7 @@
  
 ## Demo
  
-![Demo](docs/demo.gif)
+![Demo](demo.gif)
  
 <!-- Replace with your actual GIF after recording -->
  
